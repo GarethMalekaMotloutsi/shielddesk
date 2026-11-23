@@ -6,7 +6,7 @@ ShieldDesk keeps small businesses online, backed up and POPIA-ready for a fixed 
 | | |
 |---|---|
 | **Live app** | _Coming Tuesday 24 Nov_ |
-| **Stitch designs** | _Add your Stitch link here_ |
+| **Stitch designs** | [View the ShieldDesk designs in Stitch](https://stitch.google.com/projects/1154292544097062411) |
 | **Loom pitch and demo** | _Coming Wednesday 25 Nov_ |
 | **Test logins** | _Added when the live app is deployed_ |
 
@@ -20,12 +20,16 @@ ShieldDesk gives each business a **Resilience Score** (0 to 100), a **service de
 
 ## Must features
 
-1. **Login and roles** — Owner, Technician and Admin, enforced with database-level security (Supabase RLS)
-2. **Sites and asset registry** — routers, NAS, DVR/NVR, biometric devices, M365
-3. **Resilience Audit and Score** — guided audit, weighted score, prioritised fix list
-4. **Service desk** — tickets with assignment, status and comments
-5. **Monthly health report and admin dashboard** — score trend, response times, MRR
-6. **Free Resilience Check** — public lead-capture quiz
+1. **Login and roles**: Owner, Technician and Admin, enforced with database-level security (Supabase RLS)
+2. **Sites and asset registry**: routers, NAS, DVR/NVR, biometric devices, M365
+3. **Resilience Audit and Score**: guided audit, weighted score, prioritised fix list
+4. **Service desk**: tickets with assignment, status and comments
+5. **Monthly health report and admin dashboard**: score trend, response times, MRR
+6. **Free Resilience Check**: public lead-capture quiz
+
+## Designs
+
+The Stitch exports are in [`docs/designs/`](./docs/designs/).
 
 ## Screenshots
 
@@ -76,9 +80,9 @@ _None recorded yet. This section is updated as the build progresses._
 
 ## Documentation
 
-- [BUSINESS.md](./BUSINESS.md) — problem, customer, solution, impact, model, go-to-market, competition
-- [docs/PRD.md](./docs/PRD.md) — product requirements
-- [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) — phased build plan _(added Monday afternoon)_
+- [BUSINESS.md](./BUSINESS.md): problem, customer, solution, impact, model, go-to-market, competition
+- [docs/PRD.md](./docs/PRD.md): product requirements
+- [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md): phased build plan _(added Monday afternoon)_
 
 ## Author
 
