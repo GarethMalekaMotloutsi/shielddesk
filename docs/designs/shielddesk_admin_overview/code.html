@@ -1,0 +1,478 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Overview — ShieldDesk</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#14B8A6',
+        'on-primary': '#0B1F3A',
+        'primary-hover': '#00A392',
+        'primary-container': '#E5F4F0',
+        'on-primary-container': '#003731',
+        'navy': '#0B1F3A',
+        'on-navy': '#FFFFFF',
+        'navy-surface-elevated': '#1F314D',
+        'on-navy-surface-elevated': '#FFFFFF',
+        'navy-muted': '#B5C7EA',
+        'surface': '#FFFFFF',
+        'on-surface': '#0B1F3A',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#0B1F3A',
+        'on-surface-muted': '#44474A',
+        'outline': '#C4C7CA',
+        'outline-subtle': '#E0E3E6',
+        'status-good': '#22C55E',
+        'on-status-good': '#002109',
+        'status-good-container': '#C5FFC9',
+        'on-status-good-container': '#003915',
+        'status-good-text': '#006E2F',
+        'status-at-risk': '#F59E0B',
+        'on-status-at-risk': '#2A1700',
+        'status-at-risk-container': '#FFEEDE',
+        'on-status-at-risk-container': '#472A00',
+        'status-at-risk-text': '#855300',
+        'status-critical': '#EF4444',
+        'on-status-critical': '#410004',
+        'status-critical-container': '#FFEDEB',
+        'on-status-critical-container': '#68000A',
+        'status-critical-text': '#B91A24',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section-sm': '48px',
+        'section-md': '64px',
+        'section-lg': '80px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['56px', { lineHeight: '62px', letterSpacing: '-1px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg': ['44px', { lineHeight: '50px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['15px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface-subtle text-on-surface font-body antialiased">
+  <div class="min-h-[1024px] flex" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Sidebar (Deep Navy) -->
+    <aside class="w-64 shrink-0 bg-navy text-on-navy min-h-[1024px] flex flex-col justify-between border-r border-navy-surface-elevated" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col gap-gutter-xl p-6">
+        <!-- Brand Logo + Admin Tag -->
+        <div class="flex items-center justify-between gap-gutter-sm">
+          <a href="../landing-page/ShieldDeskLandingPage.html" class="inline-flex items-center gap-gutter-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-DEFAULT">
+            <span class="w-9 h-9 rounded-DEFAULT bg-primary text-on-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">shield</span>
+            </span>
+            <span data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-navy">ShieldDesk</span>
+          </a>
+          <span data-design-text-token="label-sm" class="px-2 py-0.5 rounded-full bg-navy-surface-elevated text-navy-muted font-label text-label-sm">Admin</span>
+        </div>
+
+        <!-- Admin Navigation -->
+        <nav aria-label="Admin navigation" class="flex flex-col gap-gutter-xs">
+          <a href="#" aria-current="page" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT bg-navy-surface-elevated text-on-navy-surface-elevated font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm text-primary" aria-hidden="true">dashboard</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Overview</span>
+          </a>
+
+          <a href="#customers" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">groups</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Customers</span>
+          </a>
+
+          <a href="#technicians" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">engineering</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Technicians</span>
+          </a>
+
+          <a href="#tickets" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">confirmation_number</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Tickets</span>
+          </a>
+
+          <a href="#leads" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">person_add</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Leads</span>
+          </a>
+
+          <a href="#plans" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">credit_card</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Plans</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Founder Footer -->
+      <div class="p-6 border-t border-navy-surface-elevated">
+        <div class="rounded-md bg-navy-surface-elevated p-4 flex flex-col gap-gutter-xs">
+          <span data-design-text-token="label-sm" class="font-label text-label-sm text-navy-muted">Free checks this week</span>
+          <span data-design-text-token="title-md" class="font-title text-title-md text-on-navy tabular-nums">14 completed</span>
+          <span data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted tabular-nums">5 booked follow-ups</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Content Column -->
+    <div class="flex-1 flex flex-col min-w-0">
+
+      <!-- Top Bar -->
+      <header class="bg-surface border-b border-outline-subtle px-gutter-lg py-3.5 flex items-center justify-between gap-gutter-md sticky top-0 z-20">
+        <div class="flex items-center gap-gutter-md">
+          <h1 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Overview</h1>
+          <span data-design-text-token="body-sm" class="hidden sm:inline font-body text-body-sm text-on-surface-muted tabular-nums">November 2026 · South Africa</span>
+        </div>
+
+        <!-- Founder User Menu -->
+        <button type="button" data-component-id="button-founder-menu" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center gap-gutter-sm px-3 py-1.5 rounded-DEFAULT bg-surface hover:bg-surface-subtle border border-outline-subtle transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+          <span class="w-8 h-8 rounded-full bg-navy text-on-navy flex items-center justify-center font-label text-label-md shrink-0">JN</span>
+          <span class="flex flex-col items-start text-left">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Johan Nel</span>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">Founder</span>
+          </span>
+          <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">expand_more</span>
+        </button>
+      </header>
+
+      <!-- Main Admin Body -->
+      <main class="flex-1 p-gutter-lg max-w-7xl w-full mx-auto flex flex-col gap-gutter-lg">
+
+        <!-- Top Row: Four KPI Cards -->
+        <section aria-label="Key metrics" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg items-stretch">
+          <!-- KPI 1: MRR -->
+          <article data-component-id="card-kpi" data-component-type="card" data-component-variant="elevated" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-5 shadow-sm flex flex-col justify-between gap-gutter-sm">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface-muted">MRR</span>
+            <span data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface tabular-nums">R84,500</span>
+            <div class="flex items-center gap-gutter-xs text-status-good-text">
+              <span class="material-symbols-outlined text-label-lg" aria-hidden="true">trending_up</span>
+              <span data-design-text-token="label-sm" class="font-label text-label-sm tabular-nums">+R5,200 this month</span>
+            </div>
+          </article>
+
+          <!-- KPI 2: Active customers -->
+          <article data-component-id="card-kpi" data-component-type="card" data-component-variant="elevated" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-5 shadow-sm flex flex-col justify-between gap-gutter-sm">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface-muted">Active customers</span>
+            <span data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface tabular-nums">46</span>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">62 sites monitored</span>
+          </article>
+
+          <!-- KPI 3: Open critical tickets -->
+          <article data-component-id="card-kpi" data-component-type="card" data-component-variant="elevated" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-5 shadow-sm flex flex-col justify-between gap-gutter-sm">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface-muted">Open critical tickets</span>
+            <span data-design-text-token="headline-lg" class="font-headline text-headline-lg text-status-critical-text tabular-nums">3</span>
+            <span class="inline-flex items-center gap-gutter-xs self-start px-2.5 py-0.5 rounded-full bg-status-critical-container text-on-status-critical-container">
+              <span class="w-1.5 h-1.5 rounded-full bg-status-critical" aria-hidden="true"></span>
+              <span data-design-text-token="label-sm" class="font-label text-label-sm">Needs same-day fix</span>
+            </span>
+          </article>
+
+          <!-- KPI 4: Average score -->
+          <article data-component-id="card-kpi" data-component-type="card" data-component-variant="elevated" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-5 shadow-sm flex flex-col justify-between gap-gutter-sm">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface-muted">Average score</span>
+            <span data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface tabular-nums">71</span>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Across 46 businesses</span>
+          </article>
+        </section>
+
+        <!-- Middle Row: MRR Line Chart + Technician Workload -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-stretch">
+
+          <!-- Left (7 cols): Line chart of MRR over 6 months -->
+          <article data-component-id="card-mrr-chart" data-component-type="card" data-component-variant="elevated" class="lg:col-span-7 h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col justify-between gap-gutter-md">
+            <header class="flex items-center justify-between gap-gutter-sm">
+              <div>
+                <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Monthly recurring revenue</h2>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Steady growth over the last 6 months (ZAR).</p>
+              </div>
+              <span data-design-text-token="label-md" class="font-label text-label-md text-status-good-text tabular-nums">+45% in 6 mo</span>
+            </header>
+
+            <div class="w-full flex flex-col gap-gutter-xs">
+              <svg class="w-full h-44" viewBox="0 0 540 165" role="img" aria-label="MRR line chart from R58,200 in June to R84,500 in November">
+                <!-- Y-axis guide lines & labels -->
+                <line x1="64" y1="20" x2="520" y2="20" class="stroke-outline-subtle" stroke-width="1" stroke-dasharray="4 4"></line>
+                <text x="54" y="24" text-anchor="end" class="fill-on-surface-muted text-label-sm font-label" style="font-size: 11px;">R90k</text>
+
+                <line x1="64" y1="62" x2="520" y2="62" class="stroke-outline-subtle" stroke-width="1" stroke-dasharray="4 4"></line>
+                <text x="54" y="66" text-anchor="end" class="fill-on-surface-muted text-label-sm font-label" style="font-size: 11px;">R75k</text>
+
+                <line x1="64" y1="104" x2="520" y2="104" class="stroke-outline-subtle" stroke-width="1" stroke-dasharray="4 4"></line>
+                <text x="54" y="108" text-anchor="end" class="fill-on-surface-muted text-label-sm font-label" style="font-size: 11px;">R60k</text>
+
+                <line x1="64" y1="144" x2="520" y2="144" class="stroke-outline-subtle" stroke-width="1"></line>
+
+                <!-- MRR Polyline: Jun(58.2k)->Jul(63.4k)->Aug(68.9k)->Sep(74.1k)->Oct(79.3k)->Nov(84.5k) -->
+                <polyline fill="none" class="stroke-primary" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="86,109 170,94 254,79 338,64 422,50 506,35"></polyline>
+
+                <!-- Data points -->
+                <circle cx="86" cy="109" r="4.5" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                <circle cx="170" cy="94" r="4.5" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                <circle cx="254" cy="79" r="4.5" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                <circle cx="338" cy="64" r="4.5" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                <circle cx="422" cy="50" r="4.5" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                <circle cx="506" cy="35" r="5.5" class="fill-primary stroke-surface" stroke-width="2"></circle>
+              </svg>
+
+              <div class="grid grid-cols-6 pl-14 text-center">
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Jun</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Jul</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Aug</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Sep</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Oct</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums">Nov</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Right (5 cols): Technician Workload Card with Horizontal Bars -->
+          <article data-component-id="card-workload" data-component-type="card" data-component-variant="elevated" class="lg:col-span-5 h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col justify-between gap-gutter-md">
+            <header class="flex items-center justify-between gap-gutter-sm">
+              <div>
+                <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Technician workload</h2>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Open tickets assigned per engineer.</p>
+              </div>
+              <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface-muted tabular-nums">4 active</span>
+            </header>
+
+            <div class="flex flex-col gap-gutter-md">
+              <!-- Tech 1 -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Sipho Ndlovu</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-status-at-risk-text tabular-nums">9 / 10 tickets</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-status-at-risk rounded-full" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <!-- Tech 2 -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Annelize van der Merwe</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">6 / 10 tickets</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
+                </div>
+              </div>
+
+              <!-- Tech 3 -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Kagiso Molefe</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">5 / 10 tickets</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-primary rounded-full" style="width: 50%;"></div>
+                </div>
+              </div>
+
+              <!-- Tech 4 -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Priya Naidoo</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">3 / 10 tickets</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-primary rounded-full" style="width: 30%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Bottom Row: Customers Table -->
+        <section aria-label="Customer accounts">
+          <article data-component-id="card-customers" data-component-type="card" data-component-variant="elevated" class="bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-md">
+            <header class="flex items-center justify-between gap-gutter-md">
+              <div>
+                <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Customers</h2>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Active South African SME accounts sorted by attention needed.</p>
+              </div>
+              <a href="#customers" data-design-text-token="label-md" class="font-label text-label-md text-on-primary-container hover:underline shrink-0">View all 46</a>
+            </header>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-outline-subtle">
+                    <th scope="col" class="py-3 pr-4 font-label text-label-sm text-on-surface-muted">Customer</th>
+                    <th scope="col" class="py-3 px-4 font-label text-label-sm text-on-surface-muted">Plan</th>
+                    <th scope="col" class="py-3 px-4 font-label text-label-sm text-on-surface-muted">Score</th>
+                    <th scope="col" class="py-3 px-4 font-label text-label-sm text-on-surface-muted">Open tickets</th>
+                    <th scope="col" class="py-3 pl-4 font-label text-label-sm text-on-surface-muted text-right">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-subtle">
+                  <tr>
+                    <td class="py-3.5 pr-4">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Cape Harbour Cold Storage</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Shield</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span class="inline-flex items-center gap-gutter-xs px-2.5 py-1 rounded-full bg-status-critical-container text-on-status-critical-container tabular-nums">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-critical" aria-hidden="true"></span>
+                        <span data-design-text-token="label-sm" class="font-label text-label-sm">44</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface tabular-nums">4</span>
+                    </td>
+                    <td class="py-3.5 pl-4 text-right">
+                      <span data-design-text-token="label-sm" class="px-2.5 py-1 rounded-full bg-status-critical-container text-on-status-critical-container font-label text-label-sm">Action needed</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="py-3.5 pr-4">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Karoo Logistics (Pty) Ltd</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Growth</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span class="inline-flex items-center gap-gutter-xs px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container tabular-nums">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-at-risk" aria-hidden="true"></span>
+                        <span data-design-text-token="label-sm" class="font-label text-label-sm">74</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface tabular-nums">3</span>
+                    </td>
+                    <td class="py-3.5 pl-4 text-right">
+                      <span data-design-text-token="label-sm" class="px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container font-label text-label-sm">At risk</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="py-3.5 pr-4">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Highveld Dental Group</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Growth</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span class="inline-flex items-center gap-gutter-xs px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container tabular-nums">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-at-risk" aria-hidden="true"></span>
+                        <span data-design-text-token="label-sm" class="font-label text-label-sm">68</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface tabular-nums">2</span>
+                    </td>
+                    <td class="py-3.5 pl-4 text-right">
+                      <span data-design-text-token="label-sm" class="px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container font-label text-label-sm">At risk</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="py-3.5 pr-4">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Veld &amp; Vine Legal</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Shield</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span class="inline-flex items-center gap-gutter-xs px-2.5 py-1 rounded-full bg-status-good-container text-on-status-good-container tabular-nums">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-good" aria-hidden="true"></span>
+                        <span data-design-text-token="label-sm" class="font-label text-label-sm">91</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface tabular-nums">0</span>
+                    </td>
+                    <td class="py-3.5 pl-4 text-right">
+                      <span data-design-text-token="label-sm" class="px-2.5 py-1 rounded-full bg-status-good-container text-on-status-good-container font-label text-label-sm">Healthy</span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="py-3.5 pr-4">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Morningside Accounting</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Starter</span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span class="inline-flex items-center gap-gutter-xs px-2.5 py-1 rounded-full bg-status-good-container text-on-status-good-container tabular-nums">
+                        <span class="w-1.5 h-1.5 rounded-full bg-status-good" aria-hidden="true"></span>
+                        <span data-design-text-token="label-sm" class="font-label text-label-sm">86</span>
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-4">
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface tabular-nums">1</span>
+                    </td>
+                    <td class="py-3.5 pl-4 text-right">
+                      <span data-design-text-token="label-sm" class="px-2.5 py-1 rounded-full bg-status-good-container text-on-status-good-container font-label text-label-sm">Healthy</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+
+</body></html>

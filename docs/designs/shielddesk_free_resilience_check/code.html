@@ -1,0 +1,280 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Resilience Check — ShieldDesk</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#14B8A6',
+        'on-primary': '#0B1F3A',
+        'primary-hover': '#00A392',
+        'primary-container': '#E5F4F0',
+        'on-primary-container': '#003731',
+        'navy': '#0B1F3A',
+        'on-navy': '#FFFFFF',
+        'navy-surface-elevated': '#1F314D',
+        'on-navy-surface-elevated': '#FFFFFF',
+        'navy-muted': '#B5C7EA',
+        'surface': '#FFFFFF',
+        'on-surface': '#0B1F3A',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#0B1F3A',
+        'on-surface-muted': '#44474A',
+        'outline': '#C4C7CA',
+        'outline-subtle': '#E0E3E6',
+        'status-good': '#22C55E',
+        'on-status-good': '#002109',
+        'status-good-container': '#C5FFC9',
+        'on-status-good-container': '#003915',
+        'status-good-text': '#006E2F',
+        'status-at-risk': '#F59E0B',
+        'on-status-at-risk': '#2A1700',
+        'status-at-risk-container': '#FFEEDE',
+        'on-status-at-risk-container': '#472A00',
+        'status-at-risk-text': '#855300',
+        'status-critical': '#EF4444',
+        'on-status-critical': '#410004',
+        'status-critical-container': '#FFEDEB',
+        'on-status-critical-container': '#68000A',
+        'status-critical-text': '#B91A24',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section-sm': '48px',
+        'section-md': '64px',
+        'section-lg': '80px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['56px', { lineHeight: '62px', letterSpacing: '-1px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg': ['44px', { lineHeight: '50px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['15px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface-subtle text-on-surface font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Minimal Task Flow Header (Deep Navy) -->
+    <header class="bg-navy text-on-navy border-b border-navy-surface-elevated">
+      <div class="max-w-5xl mx-auto px-gutter-lg py-4 flex items-center justify-between gap-gutter-md">
+        <a href="../landing-page/ShieldDeskLandingPage.html" class="inline-flex items-center gap-gutter-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-DEFAULT">
+          <span class="w-9 h-9 rounded-DEFAULT bg-primary text-on-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">shield</span>
+          </span>
+          <span data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-navy">ShieldDesk</span>
+        </a>
+
+        <div class="flex items-center gap-gutter-md">
+          <span data-design-text-token="label-md" class="hidden sm:inline font-label text-label-md text-navy-muted">Free Resilience Check</span>
+          <a href="../landing-page/ShieldDeskLandingPage.html" data-component-id="button-secondary-nav" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center justify-center gap-gutter-xs px-4 py-2.5 rounded-DEFAULT bg-navy-surface-elevated text-on-navy-surface-elevated hover:bg-navy border border-navy-muted/30 font-label transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">close</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Exit</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Centered Quiz Container -->
+    <main class="flex-1 flex items-center justify-center px-gutter-lg py-section-sm md:py-section-md">
+      <div class="w-full max-w-2xl flex flex-col gap-gutter-lg">
+
+        <!-- Quiz Card -->
+        <article data-component-id="card-quiz" data-component-type="card" data-component-variant="elevated" class="bg-surface text-on-surface rounded-md border border-outline-subtle p-6 md:p-10 shadow-md flex flex-col gap-gutter-xl">
+          <!-- Progress Bar & Step Counter -->
+          <div class="flex flex-col gap-gutter-sm">
+            <div class="flex items-center justify-between gap-gutter-sm">
+              <span id="quiz-progress-label" data-design-text-token="label-md" class="font-label text-label-md text-on-surface tabular-nums">
+                Question 3 of 10
+              </span>
+              <span id="quiz-category-chip" data-component-id="chip-category" data-component-type="chip" data-component-variant="with-icon" class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-primary-container text-on-primary-container">
+                <span id="quiz-category-icon" class="material-symbols-outlined text-label-lg" aria-hidden="true">backup</span>
+                <span id="quiz-category-text" data-design-text-token="label-sm" class="font-label text-label-sm">Backups</span>
+              </span>
+            </div>
+
+            <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden" role="progressbar" aria-valuenow="3" aria-valuemin="1" aria-valuemax="10" aria-label="Quiz progress">
+              <div id="quiz-progress-bar" class="h-full bg-primary rounded-full transition-colors duration-state-change ease-state-change" style="width: 30%;"></div>
+            </div>
+          </div>
+
+          <!-- Question & Friendly Helper Text -->
+          <div class="flex flex-col gap-gutter-sm">
+            <h1 id="quiz-question" data-component-id="typography-headline" data-component-type="typography" data-component-variant="headline" data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface text-balance">
+              Have you restored a backup in the last 90 days?
+            </h1>
+            <p id="quiz-helper" data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+              A backup only counts if you know it works. Most teams only test when something breaks—no judgement here.
+            </p>
+          </div>
+
+          <!-- Large Yes / Partly / No Answer Buttons -->
+          <div role="radiogroup" aria-labelledby="quiz-question" class="flex flex-col gap-gutter-md">
+            <!-- Option: Yes -->
+            <button type="button" role="radio" aria-checked="false" data-answer="Yes" data-component-id="quiz-option" data-component-type="button" data-component-variant="secondary" class="quiz-option w-full text-left px-5 py-4 rounded-md border border-outline bg-surface text-on-surface hover:border-primary hover:bg-surface-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change flex items-center justify-between gap-gutter-md">
+              <div class="flex items-center gap-gutter-md">
+                <span class="option-icon w-10 h-10 rounded-DEFAULT bg-surface-subtle text-on-surface flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">check_circle</span>
+                </span>
+                <div class="flex flex-col">
+                  <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Yes</span>
+                  <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">We tested a restore and confirmed our files came back.</span>
+                </div>
+              </div>
+              <span class="option-radio w-5 h-5 rounded-full border-2 border-outline shrink-0"></span>
+            </button>
+
+            <!-- Option: Partly (Selected default for Question 3) -->
+            <button type="button" role="radio" aria-checked="true" data-answer="Partly" data-component-id="quiz-option-selected" data-component-type="button" data-component-variant="secondary" class="quiz-option w-full text-left px-5 py-4 rounded-md border-2 border-primary bg-primary-container text-on-primary-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change flex items-center justify-between gap-gutter-md">
+              <div class="flex items-center gap-gutter-md">
+                <span class="option-icon w-10 h-10 rounded-DEFAULT bg-surface text-on-surface flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">pending</span>
+                </span>
+                <div class="flex flex-col">
+                  <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Partly</span>
+                  <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Backups run automatically, but we haven&#39;t tested a restore.</span>
+                </div>
+              </div>
+              <span class="option-radio w-5 h-5 rounded-full border-4 border-primary bg-surface shrink-0"></span>
+            </button>
+
+            <!-- Option: No -->
+            <button type="button" role="radio" aria-checked="false" data-answer="No" data-component-id="quiz-option" data-component-type="button" data-component-variant="secondary" class="quiz-option w-full text-left px-5 py-4 rounded-md border border-outline bg-surface text-on-surface hover:border-primary hover:bg-surface-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change flex items-center justify-between gap-gutter-md">
+              <div class="flex items-center gap-gutter-md">
+                <span class="option-icon w-10 h-10 rounded-DEFAULT bg-surface-subtle text-on-surface flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">cancel</span>
+                </span>
+                <div class="flex flex-col">
+                  <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">No</span>
+                  <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">We don&#39;t have a recent backup or aren&#39;t sure what&#39;s covered.</span>
+                </div>
+              </div>
+              <span class="option-radio w-5 h-5 rounded-full border-2 border-outline shrink-0"></span>
+            </button>
+          </div>
+
+          <!-- Back & Next Navigation Row -->
+          <footer class="flex items-center justify-between gap-gutter-md pt-4 border-t border-outline-subtle">
+            <!-- COMPONENT: button-secondary-light -->
+            <button id="quiz-back-btn" data-component-id="button-secondary-light" data-component-type="button" data-component-variant="secondary" type="button" class="inline-flex items-center justify-center gap-gutter-xs px-5 py-3 rounded-DEFAULT bg-surface text-on-surface border border-outline font-label hover:bg-surface-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy transition-colors duration-state-change ease-state-change">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_back</span>
+              <span data-design-text-token="label-lg" class="font-label text-label-lg">Back</span>
+            </button>
+
+            <!-- COMPONENT: button-primary -->
+            <button id="quiz-next-btn" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="button" class="inline-flex items-center justify-center gap-gutter-xs px-6 py-3.5 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change">
+              <span data-design-text-token="label-lg" class="font-label text-label-lg">Next</span>
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+            </button>
+          </footer>
+        </article>
+
+        <!-- Reassurance Note Below Card -->
+        <div class="flex items-center justify-center gap-gutter-sm text-center">
+          <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">lock</span>
+          <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">
+            Takes about 3 minutes. No software to install and no spam calls.
+          </p>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    (function () {
+      const options = document.querySelectorAll('.quiz-option');
+      options.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          options.forEach(function (other) {
+            other.setAttribute('aria-checked', 'false');
+            other.setAttribute('data-component-id', 'quiz-option');
+            other.classList.remove('border-2', 'border-primary', 'bg-primary-container', 'text-on-primary-container');
+            other.classList.add('border', 'border-outline', 'bg-surface', 'text-on-surface');
+            const radio = other.querySelector('.option-radio');
+            if (radio) {
+              radio.classList.remove('border-4', 'border-primary', 'bg-surface');
+              radio.classList.add('border-2', 'border-outline');
+            }
+            const iconBox = other.querySelector('.option-icon');
+            if (iconBox) {
+              iconBox.classList.remove('bg-surface');
+              iconBox.classList.add('bg-surface-subtle');
+            }
+          });
+          btn.setAttribute('aria-checked', 'true');
+          btn.setAttribute('data-component-id', 'quiz-option-selected');
+          btn.classList.remove('border', 'border-outline', 'bg-surface', 'text-on-surface');
+          btn.classList.add('border-2', 'border-primary', 'bg-primary-container', 'text-on-primary-container');
+          const activeRadio = btn.querySelector('.option-radio');
+          if (activeRadio) {
+            activeRadio.classList.remove('border-2', 'border-outline');
+            activeRadio.classList.add('border-4', 'border-primary', 'bg-surface');
+          }
+          const activeIconBox = btn.querySelector('.option-icon');
+          if (activeIconBox) {
+            activeIconBox.classList.remove('bg-surface-subtle');
+            activeIconBox.classList.add('bg-surface');
+          }
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

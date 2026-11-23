@@ -1,0 +1,549 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Owner Dashboard — ShieldDesk</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#14B8A6',
+        'on-primary': '#0B1F3A',
+        'primary-hover': '#00A392',
+        'primary-container': '#E5F4F0',
+        'on-primary-container': '#003731',
+        'navy': '#0B1F3A',
+        'on-navy': '#FFFFFF',
+        'navy-surface-elevated': '#1F314D',
+        'on-navy-surface-elevated': '#FFFFFF',
+        'navy-muted': '#B5C7EA',
+        'surface': '#FFFFFF',
+        'on-surface': '#0B1F3A',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#0B1F3A',
+        'on-surface-muted': '#44474A',
+        'outline': '#C4C7CA',
+        'outline-subtle': '#E0E3E6',
+        'status-good': '#22C55E',
+        'on-status-good': '#002109',
+        'status-good-container': '#C5FFC9',
+        'on-status-good-container': '#003915',
+        'status-good-text': '#006E2F',
+        'status-at-risk': '#F59E0B',
+        'on-status-at-risk': '#2A1700',
+        'status-at-risk-container': '#FFEEDE',
+        'on-status-at-risk-container': '#472A00',
+        'status-at-risk-text': '#855300',
+        'status-critical': '#EF4444',
+        'on-status-critical': '#410004',
+        'status-critical-container': '#FFEDEB',
+        'on-status-critical-container': '#68000A',
+        'status-critical-text': '#B91A24',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section-sm': '48px',
+        'section-md': '64px',
+        'section-lg': '80px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['56px', { lineHeight: '62px', letterSpacing: '-1px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg': ['44px', { lineHeight: '50px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['15px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface-subtle text-on-surface font-body antialiased">
+  <div class="min-h-[1024px] flex" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Sidebar (Deep Navy) -->
+    <aside class="w-64 shrink-0 bg-navy text-on-navy min-h-[1024px] flex flex-col justify-between border-r border-navy-surface-elevated" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex flex-col gap-gutter-xl p-6">
+        <!-- Brand Logo -->
+        <a href="../landing-page/ShieldDeskLandingPage.html" class="inline-flex items-center gap-gutter-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-DEFAULT">
+          <span class="w-9 h-9 rounded-DEFAULT bg-primary text-on-primary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">shield</span>
+          </span>
+          <span data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-navy">ShieldDesk</span>
+        </a>
+
+        <!-- Primary Navigation -->
+        <nav aria-label="Main navigation" class="flex flex-col gap-gutter-xs">
+          <a href="#" aria-current="page" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT bg-navy-surface-elevated text-on-navy-surface-elevated font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm text-primary" aria-hidden="true">dashboard</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Dashboard</span>
+          </a>
+
+          <a href="#sites" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">location_on</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Sites</span>
+          </a>
+
+          <a href="#audits" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">fact_check</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Audits</span>
+          </a>
+
+          <a href="#tickets" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">confirmation_number</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Tickets</span>
+          </a>
+
+          <a href="#reports" class="flex items-center gap-gutter-md px-3.5 py-2.5 rounded-DEFAULT text-navy-muted hover:bg-navy-surface-elevated hover:text-on-navy font-label transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">summarize</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Reports</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Plan Status Footer in Sidebar -->
+      <div class="p-6 border-t border-navy-surface-elevated">
+        <div class="rounded-md bg-navy-surface-elevated p-4 flex flex-col gap-gutter-xs">
+          <span data-design-text-token="label-sm" class="font-label text-label-sm text-navy-muted">Active plan</span>
+          <span data-design-text-token="title-md" class="font-title text-title-md text-on-navy">Growth Plan</span>
+          <span data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted">2 sites covered</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Content Column -->
+    <div class="flex-1 flex flex-col min-w-0">
+
+      <!-- Top Bar: Site Selector & User Menu -->
+      <header class="bg-surface border-b border-outline-subtle px-gutter-lg py-3.5 flex items-center justify-between gap-gutter-md sticky top-0 z-20">
+        <div class="flex items-center gap-gutter-md">
+          <h1 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Dashboard</h1>
+
+          <!-- Site Selector -->
+          <div class="flex items-center gap-gutter-sm">
+            <label for="site-selector" class="sr-only">Select site</label>
+            <div class="relative inline-flex items-center">
+              <span class="material-symbols-outlined text-title-md text-on-surface-muted absolute left-3 pointer-events-none" aria-hidden="true">location_on</span>
+              <select id="site-selector" class="pl-9 pr-9 py-2 rounded-DEFAULT border border-outline bg-surface text-on-surface font-label text-label-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                <option value="sandton">Sandton Office (HQ)</option>
+                <option value="cape-town">Cape Town Warehouse</option>
+                <option value="all">All Sites (2)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Menu -->
+        <button type="button" data-component-id="button-user-menu" data-component-type="button" data-component-variant="secondary" class="inline-flex items-center gap-gutter-sm px-3 py-1.5 rounded-DEFAULT bg-surface hover:bg-surface-subtle border border-outline-subtle transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+          <span class="w-8 h-8 rounded-full bg-navy text-on-navy flex items-center justify-center font-label text-label-md shrink-0">TM</span>
+          <span class="flex flex-col items-start text-left">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Thabo Mokoena</span>
+            <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">Business Owner</span>
+          </span>
+          <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">expand_more</span>
+        </button>
+      </header>
+
+      <!-- Main Dashboard Body -->
+      <main class="flex-1 p-gutter-lg max-w-7xl w-full mx-auto flex flex-col gap-gutter-lg">
+
+        <!-- Hero Card: Resilience Score Ring (74/100) + 6-Month Trend Line -->
+        <section aria-label="Resilience overview">
+          <article data-component-id="card-hero-score" data-component-type="card" data-component-variant="elevated" class="bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+            <!-- Left: Score Ring & Summary -->
+            <div class="lg:col-span-7 flex flex-col sm:flex-row items-center gap-gutter-lg">
+              <!-- Circular Ring: 74 out of 100 -->
+              <div class="relative w-40 h-40 shrink-0 flex items-center justify-center">
+                <svg class="w-full h-full -rotate-90" viewBox="0 0 160 160" role="img" aria-label="Resilience Score 74 out of 100">
+                  <circle cx="80" cy="80" r="66" fill="none" class="stroke-outline-subtle" stroke-width="14"></circle>
+                  <!-- 74% of 414.69 -> dashoffset = 414.69 * 0.26 = 107.82 -->
+                  <circle cx="80" cy="80" r="66" fill="none" class="stroke-status-at-risk" stroke-width="14" stroke-linecap="round" stroke-dasharray="414.69" stroke-dashoffset="107.82"></circle>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <span data-design-text-token="display-lg" class="font-display text-display-lg text-on-surface tabular-nums">74</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">out of 100</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-gutter-sm">
+                <div class="flex flex-wrap items-center gap-gutter-sm">
+                  <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Resilience Score</h2>
+                  <span class="inline-flex items-center gap-gutter-xs px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-status-at-risk" aria-hidden="true"></span>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm">At risk</span>
+                  </span>
+                </div>
+                <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                  Up 3 points from last month. Backups and Microsoft 365 are healthy; fixing 2 POPIA items will lift your score above 85.
+                </p>
+                <div class="flex items-center gap-gutter-xs text-status-good-text">
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">trending_up</span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md tabular-nums">+13 pts over 6 months</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: 6-Month Trend Line -->
+            <div class="lg:col-span-5 lg:border-l lg:border-outline-subtle lg:pl-8 flex flex-col gap-gutter-sm">
+              <div class="flex items-center justify-between gap-gutter-sm">
+                <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">6-month trend</span>
+                <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Jun – Nov 2026</span>
+              </div>
+
+              <div class="w-full">
+                <svg class="w-full h-28" viewBox="0 0 420 110" role="img" aria-label="Resilience score trend from 61 in June to 74 in November">
+                  <!-- Subtle horizontal guide lines -->
+                  <line x1="20" y1="20" x2="400" y2="20" class="stroke-outline-subtle" stroke-width="1" stroke-dasharray="4 4"></line>
+                  <line x1="20" y1="55" x2="400" y2="55" class="stroke-outline-subtle" stroke-width="1" stroke-dasharray="4 4"></line>
+                  <line x1="20" y1="90" x2="400" y2="90" class="stroke-outline-subtle" stroke-width="1"></line>
+
+                  <!-- Trend polyline: Jun(61)->Jul(64)->Aug(67)->Sep(69)->Oct(71)->Nov(74) -->
+                  <polyline fill="none" class="stroke-primary" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="30,78 104,68 178,56 252,48 326,40 400,26"></polyline>
+
+                  <!-- Data points -->
+                  <circle cx="30" cy="78" r="4" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                  <circle cx="104" cy="68" r="4" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                  <circle cx="178" cy="56" r="4" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                  <circle cx="252" cy="48" r="4" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                  <circle cx="326" cy="40" r="4" class="fill-surface stroke-primary" stroke-width="2.5"></circle>
+                  <circle cx="400" cy="26" r="5" class="fill-primary stroke-surface" stroke-width="2"></circle>
+                </svg>
+                <div class="flex items-center justify-between px-1">
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Jun (61)</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Jul (64)</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Aug (67)</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Sep (69)</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted tabular-nums">Oct (71)</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface tabular-nums">Nov (74)</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Category Breakdown: Horizontal Bars -->
+        <section aria-label="Category breakdown">
+          <article data-component-id="card-breakdown" data-component-type="card" data-component-variant="elevated" class="bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-lg">
+            <header class="flex items-center justify-between gap-gutter-md">
+              <div>
+                <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Category breakdown</h2>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Six core areas checked automatically for Sandton Office (HQ).</p>
+              </div>
+              <div class="hidden sm:flex items-center gap-gutter-md">
+                <span class="inline-flex items-center gap-gutter-xs">
+                  <span class="w-2.5 h-2.5 rounded-full bg-status-good" aria-hidden="true"></span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">Good (80+)</span>
+                </span>
+                <span class="inline-flex items-center gap-gutter-xs">
+                  <span class="w-2.5 h-2.5 rounded-full bg-status-at-risk" aria-hidden="true"></span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">At risk (50–79)</span>
+                </span>
+                <span class="inline-flex items-center gap-gutter-xs">
+                  <span class="w-2.5 h-2.5 rounded-full bg-status-critical" aria-hidden="true"></span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">Critical (&lt;50)</span>
+                </span>
+              </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
+              <!-- Bar 1: Backups (92% - Green) -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span class="inline-flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">backup</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Backups</span>
+                  </span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-status-good-text tabular-nums">92%</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-status-good rounded-full" style="width: 92%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 2: Microsoft 365 (88% - Green) -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span class="inline-flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">mail</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Microsoft 365</span>
+                  </span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-status-good-text tabular-nums">88%</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-status-good rounded-full" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 3: Network (84% - Green) -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span class="inline-flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">router</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Network</span>
+                  </span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-status-good-text tabular-nums">84%</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-status-good rounded-full" style="width: 84%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 4: CCTV and biometrics (58% - Amber) -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span class="inline-flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">videocam</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">CCTV and biometrics</span>
+                  </span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-status-at-risk-text tabular-nums">58%</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-status-at-risk rounded-full" style="width: 58%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 5: POPIA (42% - Red) -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span class="inline-flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">gavel</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">POPIA</span>
+                  </span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-status-critical-text tabular-nums">42%</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-status-critical rounded-full" style="width: 42%;"></div>
+                </div>
+              </div>
+
+              <!-- Bar 6: Power (65% - Amber) -->
+              <div class="flex flex-col gap-gutter-xs">
+                <div class="flex items-center justify-between gap-gutter-sm">
+                  <span class="inline-flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-on-surface-muted" aria-hidden="true">bolt</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface">Power</span>
+                  </span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md text-status-at-risk-text tabular-nums">65%</span>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-outline-subtle overflow-hidden">
+                  <div class="h-full bg-status-at-risk rounded-full" style="width: 65%;"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Bottom Grid: Top Risks + Open Tickets + Assets at Risk -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+
+          <!-- Left (7 cols): Top Risks List -->
+          <article data-component-id="card-top-risks" data-component-type="card" data-component-variant="elevated" class="lg:col-span-7 bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-md">
+            <header class="flex items-center justify-between gap-gutter-sm">
+              <div>
+                <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Top risks</h2>
+                <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Plain-language items to resolve first.</p>
+              </div>
+              <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface-muted tabular-nums">3 open</span>
+            </header>
+
+            <div class="flex flex-col divide-y divide-outline-subtle">
+              <!-- Risk 1 -->
+              <div class="py-4 first:pt-2 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <div class="flex items-center gap-gutter-sm">
+                    <span class="inline-flex items-center gap-gutter-xs px-2.5 py-0.5 rounded-full bg-status-critical-container text-on-status-critical-container shrink-0">
+                      <span class="w-1.5 h-1.5 rounded-full bg-status-critical" aria-hidden="true"></span>
+                      <span data-design-text-token="label-sm" class="font-label text-label-sm">Critical</span>
+                    </span>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">POPIA</span>
+                  </div>
+                  <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Two former staff still have Microsoft 365 access</h3>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Active sign-ins detected from accounts offboarded in September.</p>
+                </div>
+                <button type="button" data-component-id="button-create-ticket" data-component-type="button" data-component-variant="primary" class="shrink-0 inline-flex items-center justify-center gap-gutter-xs px-4 py-2 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change">
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">add_circle</span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md">Create ticket</span>
+                </button>
+              </div>
+
+              <!-- Risk 2 -->
+              <div class="py-4 first:pt-2 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <div class="flex items-center gap-gutter-sm">
+                    <span class="inline-flex items-center gap-gutter-xs px-2.5 py-0.5 rounded-full bg-status-critical-container text-on-status-critical-container shrink-0">
+                      <span class="w-1.5 h-1.5 rounded-full bg-status-critical" aria-hidden="true"></span>
+                      <span data-design-text-token="label-sm" class="font-label text-label-sm">Critical</span>
+                    </span>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">CCTV and biometrics</span>
+                  </div>
+                  <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Main reception NVR stopped recording 14 days ago</h3>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Cameras are online, but the recorder drive is reporting read/write errors.</p>
+                </div>
+                <button type="button" data-component-id="button-create-ticket" data-component-type="button" data-component-variant="primary" class="shrink-0 inline-flex items-center justify-center gap-gutter-xs px-4 py-2 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change">
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">add_circle</span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md">Create ticket</span>
+                </button>
+              </div>
+
+              <!-- Risk 3 -->
+              <div class="py-4 first:pt-2 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-gutter-md">
+                <div class="flex flex-col gap-gutter-xs">
+                  <div class="flex items-center gap-gutter-sm">
+                    <span class="inline-flex items-center gap-gutter-xs px-2.5 py-0.5 rounded-full bg-status-at-risk-container text-on-status-at-risk-container shrink-0">
+                      <span class="w-1.5 h-1.5 rounded-full bg-status-at-risk" aria-hidden="true"></span>
+                      <span data-design-text-token="label-sm" class="font-label text-label-sm">At risk</span>
+                    </span>
+                    <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">Power</span>
+                  </div>
+                  <h3 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Server room UPS battery health is below 40%</h3>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Estimated runtime during Stage 4 load-shedding is under 8 minutes.</p>
+                </div>
+                <button type="button" data-component-id="button-create-ticket" data-component-type="button" data-component-variant="primary" class="shrink-0 inline-flex items-center justify-center gap-gutter-xs px-4 py-2 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change">
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">add_circle</span>
+                  <span data-design-text-token="label-md" class="font-label text-label-md">Create ticket</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Right (5 cols): Open Tickets + Assets at Risk -->
+          <div class="lg:col-span-5 flex flex-col gap-gutter-lg">
+
+            <!-- Open Tickets Card (3 items + status chips) -->
+            <article data-component-id="card-open-tickets" data-component-type="card" data-component-variant="elevated" class="bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-md">
+              <header class="flex items-center justify-between gap-gutter-sm">
+                <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Open tickets</h2>
+                <a href="#tickets" data-design-text-token="label-md" class="font-label text-label-md text-on-primary-container hover:underline">View all</a>
+              </header>
+
+              <div class="flex flex-col divide-y divide-outline-subtle">
+                <!-- Ticket 1 -->
+                <div class="py-3 first:pt-1 last:pb-0 flex items-center justify-between gap-gutter-sm">
+                  <div class="flex flex-col">
+                    <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Enable 2-step sign-in for staff</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted tabular-nums">#SD-1042 · Updated 2h ago</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm shrink-0">In progress</span>
+                </div>
+
+                <!-- Ticket 2 -->
+                <div class="py-3 first:pt-1 last:pb-0 flex items-center justify-between gap-gutter-sm">
+                  <div class="flex flex-col">
+                    <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Test-restore Pastel backup</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted tabular-nums">#SD-1039 · Scheduled Thu 10:00</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-status-good-container text-on-status-good-container font-label text-label-sm shrink-0">Scheduled</span>
+                </div>
+
+                <!-- Ticket 3 -->
+                <div class="py-3 first:pt-1 last:pb-0 flex items-center justify-between gap-gutter-sm">
+                  <div class="flex flex-col">
+                    <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Replace reception UPS battery</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted tabular-nums">#SD-1035 · Awaiting site access</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container font-label text-label-sm shrink-0">Waiting</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Assets at Risk Card -->
+            <article data-component-id="card-assets-risk" data-component-type="card" data-component-variant="elevated" class="bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-md">
+              <header class="flex items-center justify-between gap-gutter-sm">
+                <h2 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">Assets at risk</h2>
+                <span data-design-text-token="label-md" class="font-label text-label-md text-on-surface-muted tabular-nums">3 devices</span>
+              </header>
+
+              <div class="flex flex-col divide-y divide-outline-subtle">
+                <div class="py-3 first:pt-1 last:pb-0 flex items-center justify-between gap-gutter-sm">
+                  <div class="flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-status-critical-text shrink-0" aria-hidden="true">videocam</span>
+                    <div class="flex flex-col">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Reception NVR-01</span>
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Recording stopped (drive error)</span>
+                    </div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-status-critical-container text-on-status-critical-container font-label text-label-sm shrink-0">Critical</span>
+                </div>
+
+                <div class="py-3 first:pt-1 last:pb-0 flex items-center justify-between gap-gutter-sm">
+                  <div class="flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-status-at-risk-text shrink-0" aria-hidden="true">bolt</span>
+                    <div class="flex flex-col">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Server Room UPS-1</span>
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Battery capacity at 38%</span>
+                    </div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container font-label text-label-sm shrink-0">At risk</span>
+                </div>
+
+                <div class="py-3 first:pt-1 last:pb-0 flex items-center justify-between gap-gutter-sm">
+                  <div class="flex items-center gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-status-at-risk-text shrink-0" aria-hidden="true">devices</span>
+                    <div class="flex flex-col">
+                      <span data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Accounts DELL-441</span>
+                      <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Disk encryption not yet enabled</span>
+                    </div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container font-label text-label-sm shrink-0">At risk</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+
+</body></html>

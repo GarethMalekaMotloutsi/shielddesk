@@ -1,0 +1,552 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShieldDesk — Calm IT &amp; Security Care for South African Businesses</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#14B8A6',
+        'on-primary': '#0B1F3A',
+        'primary-hover': '#00A392',
+        'primary-container': '#E5F4F0',
+        'on-primary-container': '#003731',
+        'navy': '#0B1F3A',
+        'on-navy': '#FFFFFF',
+        'navy-surface-elevated': '#1F314D',
+        'on-navy-surface-elevated': '#FFFFFF',
+        'navy-muted': '#B5C7EA',
+        'surface': '#FFFFFF',
+        'on-surface': '#0B1F3A',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#0B1F3A',
+        'on-surface-muted': '#44474A',
+        'outline': '#C4C7CA',
+        'outline-subtle': '#E0E3E6',
+        'status-good': '#22C55E',
+        'on-status-good': '#002109',
+        'status-good-container': '#C5FFC9',
+        'on-status-good-container': '#003915',
+        'status-good-text': '#006E2F',
+        'status-at-risk': '#F59E0B',
+        'on-status-at-risk': '#2A1700',
+        'status-at-risk-container': '#FFEEDE',
+        'on-status-at-risk-container': '#472A00',
+        'status-at-risk-text': '#855300',
+        'status-critical': '#EF4444',
+        'on-status-critical': '#410004',
+        'status-critical-container': '#FFEDEB',
+        'on-status-critical-container': '#68000A',
+        'status-critical-text': '#B91A24',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section-sm': '48px',
+        'section-md': '64px',
+        'section-lg': '80px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['56px', { lineHeight: '62px', letterSpacing: '-1px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg': ['44px', { lineHeight: '50px', letterSpacing: '-0.75px', fontWeight: '700' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['15px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Top Navigation Header (Deep Navy) -->
+    <header class="bg-navy text-on-navy border-b border-navy-surface-elevated sticky top-0 z-30">
+      <div class="max-w-7xl mx-auto px-gutter-lg py-4 flex items-center justify-between gap-gutter-md">
+        <a href="#" class="inline-flex items-center gap-gutter-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-DEFAULT">
+          <span class="w-9 h-9 rounded-DEFAULT bg-primary text-on-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">shield</span>
+          </span>
+          <span data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-navy">ShieldDesk</span>
+        </a>
+
+        <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-gutter-xl">
+          <a href="#the-problem" data-design-text-token="label-lg" class="font-label text-label-lg text-navy-muted hover:text-on-navy transition-colors duration-state-change ease-state-change">The problem</a>
+          <a href="#how-it-works" data-design-text-token="label-lg" class="font-label text-label-lg text-navy-muted hover:text-on-navy transition-colors duration-state-change ease-state-change">How it works</a>
+          <a href="#pricing" data-design-text-token="label-lg" class="font-label text-label-lg text-navy-muted hover:text-on-navy transition-colors duration-state-change ease-state-change">Pricing</a>
+        </nav>
+
+        <div class="flex items-center gap-gutter-sm">
+          <!-- COMPONENT: button-secondary-nav -->
+          <button data-component-id="button-secondary-nav" data-component-type="button" data-component-variant="secondary" type="button" class="inline-flex items-center justify-center px-4 py-2.5 rounded-DEFAULT bg-navy-surface-elevated text-on-navy-surface-elevated hover:bg-navy border border-navy-muted/30 font-label transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Log in</span>
+          </button>
+
+          <!-- COMPONENT: button-primary-nav -->
+          <button data-component-id="button-primary-nav" data-component-type="button" data-component-variant="primary" type="button" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Get my free Resilience Check</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+
+      <!-- Hero Section -->
+      <section class="bg-navy text-on-navy py-section-md lg:py-section-lg">
+        <div class="max-w-7xl mx-auto px-gutter-lg grid grid-cols-1 lg:grid-cols-12 gap-gutter-xl items-center">
+
+          <!-- Left Column: Copy & Actions -->
+          <div class="lg:col-span-7 flex flex-col gap-gutter-lg">
+            <h1 data-component-id="typography-display" data-component-type="typography" data-component-variant="display" data-design-text-token="display-xl" class="font-display text-display-xl-mobile md:text-display-xl text-on-navy text-balance">
+              The IT department your business can&#39;t afford to be without.
+            </h1>
+
+            <p data-component-id="typography-body" data-component-type="typography" data-component-variant="body" data-design-text-token="body-lg" class="font-body text-body-lg text-navy-muted max-w-prose text-pretty">
+              Know your risk. Fix it fast. Stay POPIA-ready. One fixed monthly fee.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-gutter-md pt-2">
+              <!-- COMPONENT: button-primary -->
+              <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="button" class="inline-flex items-center justify-center gap-gutter-sm px-6 py-3.5 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg" class="font-label text-label-lg">Get my free Resilience Check</span>
+              </button>
+
+              <!-- COMPONENT: button-secondary -->
+              <button data-component-id="button-secondary" data-component-type="button" data-component-variant="secondary" type="button" class="inline-flex items-center justify-center px-6 py-3.5 rounded-DEFAULT bg-navy-surface-elevated text-on-navy-surface-elevated border border-navy-muted/30 font-label hover:bg-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg" class="font-label text-label-lg">Log in</span>
+              </button>
+            </div>
+
+            <p data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted">
+              Built for South African small businesses. No long-term lock-in, no IT jargon.
+            </p>
+          </div>
+
+          <!-- Right Column: Hero Visual — Resilience Score Ring (72) + Category Chips -->
+          <div class="lg:col-span-5">
+            <article data-component-id="card-resilience-score" data-component-type="card" data-component-variant="elevated" class="bg-surface text-on-surface rounded-md p-6 md:p-8 shadow-lg flex flex-col items-center gap-gutter-lg">
+              <header class="w-full flex items-center justify-between gap-gutter-sm">
+                <div>
+                  <h2 data-design-text-token="title-md" class="font-title text-title-md text-on-surface">Resilience Score</h2>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">Sample site: Sandton Office</p>
+                </div>
+                <span class="inline-flex items-center gap-gutter-xs px-3 py-1 rounded-full bg-status-at-risk-container text-on-status-at-risk-container shrink-0">
+                  <span class="w-2 h-2 rounded-full bg-status-at-risk" aria-hidden="true"></span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm">At risk</span>
+                </span>
+              </header>
+
+              <!-- Circular Resilience Score Ring showing 72 -->
+              <div class="relative w-48 h-48 flex items-center justify-center">
+                <svg class="w-full h-full -rotate-90" viewBox="0 0 160 160" role="img" aria-label="Resilience Score 72 out of 100">
+                  <circle cx="80" cy="80" r="66" fill="none" class="stroke-outline-subtle" stroke-width="14"></circle>
+                  <!-- 72% of circumference (2 * pi * 66 = 414.69 -> dashoffset = 414.69 * 0.28 = 116.11) -->
+                  <circle cx="80" cy="80" r="66" fill="none" class="stroke-status-at-risk" stroke-width="14" stroke-linecap="round" stroke-dasharray="414.69" stroke-dashoffset="116.11"></circle>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <span data-design-text-token="display-lg" class="font-display text-display-lg text-on-surface tabular-nums">72</span>
+                  <span data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted">out of 100</span>
+                </div>
+              </div>
+
+              <!-- 6 Category Chips -->
+              <div class="w-full flex flex-col gap-gutter-sm">
+                <p data-design-text-token="label-sm" class="font-label text-label-sm text-on-surface-muted text-center">Six areas checked every week</p>
+                <div class="flex flex-wrap items-center justify-center gap-gutter-sm">
+                  <!-- COMPONENT: chip-with-icon (Good) -->
+                  <span data-component-id="chip-with-icon" data-component-type="chip" data-component-variant="with-icon" class="inline-flex items-center gap-gutter-xs px-3 py-1.5 rounded-full bg-status-good-container text-on-status-good-container">
+                    <span class="material-symbols-outlined text-label-lg" aria-hidden="true">backup</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md">Backups</span>
+                  </span>
+
+                  <!-- COMPONENT: chip-with-icon (Good) -->
+                  <span data-component-id="chip-with-icon" data-component-type="chip" data-component-variant="with-icon" class="inline-flex items-center gap-gutter-xs px-3 py-1.5 rounded-full bg-status-good-container text-on-status-good-container">
+                    <span class="material-symbols-outlined text-label-lg" aria-hidden="true">mail</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md">Microsoft 365</span>
+                  </span>
+
+                  <!-- COMPONENT: chip-with-icon (Good) -->
+                  <span data-component-id="chip-with-icon" data-component-type="chip" data-component-variant="with-icon" class="inline-flex items-center gap-gutter-xs px-3 py-1.5 rounded-full bg-status-good-container text-on-status-good-container">
+                    <span class="material-symbols-outlined text-label-lg" aria-hidden="true">router</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md">Network</span>
+                  </span>
+
+                  <!-- COMPONENT: chip-with-icon-at-risk (At risk) -->
+                  <span data-component-id="chip-with-icon-at-risk" data-component-type="chip" data-component-variant="with-icon" class="inline-flex items-center gap-gutter-xs px-3 py-1.5 rounded-full bg-status-at-risk-container text-on-status-at-risk-container">
+                    <span class="material-symbols-outlined text-label-lg" aria-hidden="true">videocam</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md">CCTV</span>
+                  </span>
+
+                  <!-- COMPONENT: chip-with-icon-critical (Critical) -->
+                  <span data-component-id="chip-with-icon-critical" data-component-type="chip" data-component-variant="with-icon" class="inline-flex items-center gap-gutter-xs px-3 py-1.5 rounded-full bg-status-critical-container text-on-status-critical-container">
+                    <span class="material-symbols-outlined text-label-lg" aria-hidden="true">gavel</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md">POPIA</span>
+                  </span>
+
+                  <!-- COMPONENT: chip-with-icon-at-risk (At risk) -->
+                  <span data-component-id="chip-with-icon-at-risk" data-component-type="chip" data-component-variant="with-icon" class="inline-flex items-center gap-gutter-xs px-3 py-1.5 rounded-full bg-status-at-risk-container text-on-status-at-risk-container">
+                    <span class="material-symbols-outlined text-label-lg" aria-hidden="true">bolt</span>
+                    <span data-design-text-token="label-md" class="font-label text-label-md">Power</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: The Problem -->
+      <section id="the-problem" class="bg-surface-subtle py-section-md lg:py-section-lg">
+        <div class="max-w-7xl mx-auto px-gutter-lg flex flex-col gap-gutter-xl">
+          <div class="max-w-2xl flex flex-col gap-gutter-sm">
+            <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface text-balance">
+              The problem
+            </h2>
+            <p data-design-text-token="body-lg" class="font-body text-body-lg text-on-surface-muted text-pretty">
+              Most small businesses only find out their IT has failed when work stops or a client asks tough questions.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+            <!-- Problem Card 1: Untested backups -->
+            <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-md">
+              <header class="flex flex-col gap-gutter-md">
+                <div class="w-11 h-11 rounded-DEFAULT bg-primary-container text-on-primary-container flex items-center justify-center">
+                  <span class="material-symbols-outlined text-headline-md" aria-hidden="true">cloud_off</span>
+                </div>
+                <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">
+                  Untested backups
+                </h3>
+              </header>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                A backup that has never been test-restored is just a hope. We check that your files and accounting data can actually come back after theft, power surges, or ransomware.
+              </p>
+            </article>
+
+            <!-- Problem Card 2: Silent CCTV failures -->
+            <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-md">
+              <header class="flex flex-col gap-gutter-md">
+                <div class="w-11 h-11 rounded-DEFAULT bg-primary-container text-on-primary-container flex items-center justify-center">
+                  <span class="material-symbols-outlined text-headline-md" aria-hidden="true">videocam_off</span>
+                </div>
+                <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">
+                  Silent CCTV failures
+                </h3>
+              </header>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                Cameras stay powered on even when the recorder hard drive stops writing. You only discover weeks of missing footage after an incident on site.
+              </p>
+            </article>
+
+            <!-- Problem Card 3: POPIA exposure -->
+            <article data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-6 shadow-sm flex flex-col gap-gutter-md">
+              <header class="flex flex-col gap-gutter-md">
+                <div class="w-11 h-11 rounded-DEFAULT bg-primary-container text-on-primary-container flex items-center justify-center">
+                  <span class="material-symbols-outlined text-headline-md" aria-hidden="true">gavel</span>
+                </div>
+                <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">
+                  POPIA exposure
+                </h3>
+              </header>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                Former staff still able to open company email, unencrypted laptops, and missing two-step sign-in leave your customer records exposed and hard to defend.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: How it works (Audit, Fix, Report) -->
+      <section id="how-it-works" class="bg-surface py-section-md lg:py-section-lg">
+        <div class="max-w-7xl mx-auto px-gutter-lg flex flex-col gap-gutter-xl">
+          <div class="max-w-2xl flex flex-col gap-gutter-sm">
+            <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface text-balance">
+              How it works
+            </h2>
+            <p data-design-text-token="body-lg" class="font-body text-body-lg text-on-surface-muted text-pretty">
+              Three calm, predictable steps to keep every office running and compliant.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+            <!-- Step 1: Audit -->
+            <article data-component-id="card-step" data-component-type="card" data-component-variant="filled" class="h-full bg-surface-subtle text-on-surface rounded-md border border-outline-subtle p-6 flex flex-col gap-gutter-md">
+              <header class="flex items-center gap-gutter-md">
+                <div class="w-11 h-11 rounded-DEFAULT bg-navy text-on-navy flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-md" aria-hidden="true">fact_check</span>
+                </div>
+                <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">
+                  Audit
+                </h3>
+              </header>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                We run a non-intrusive check across your backups, Microsoft 365, network, CCTV, POPIA controls, and backup power to give you a clear score out of 100.
+              </p>
+            </article>
+
+            <!-- Step 2: Fix -->
+            <article data-component-id="card-step" data-component-type="card" data-component-variant="filled" class="h-full bg-surface-subtle text-on-surface rounded-md border border-outline-subtle p-6 flex flex-col gap-gutter-md">
+              <header class="flex items-center gap-gutter-md">
+                <div class="w-11 h-11 rounded-DEFAULT bg-navy text-on-navy flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-md" aria-hidden="true">handyman</span>
+                </div>
+                <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">
+                  Fix
+                </h3>
+              </header>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                We close the gaps in plain order of priority—turning on two-step sign-in, verifying restores, and fixing silent recorder or UPS issues without disrupting your day.
+              </p>
+            </article>
+
+            <!-- Step 3: Report -->
+            <article data-component-id="card-step" data-component-type="card" data-component-variant="filled" class="h-full bg-surface-subtle text-on-surface rounded-md border border-outline-subtle p-6 flex flex-col gap-gutter-md">
+              <header class="flex items-center gap-gutter-md">
+                <div class="w-11 h-11 rounded-DEFAULT bg-navy text-on-navy flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-headline-md" aria-hidden="true">summarize</span>
+                </div>
+                <h3 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-on-surface">
+                  Report
+                </h3>
+              </header>
+              <p data-design-text-token="body-md" class="font-body text-body-md text-on-surface-muted text-pretty">
+                Every month you get a one-page Resilience Report in plain English—proof for directors, insurers, and POPIA audits that your business is protected.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Pricing -->
+      <section id="pricing" class="bg-surface-subtle py-section-md lg:py-section-lg">
+        <div class="max-w-7xl mx-auto px-gutter-lg flex flex-col gap-gutter-xl">
+          <div class="max-w-2xl flex flex-col gap-gutter-sm">
+            <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface text-balance">
+              Fixed monthly pricing
+            </h2>
+            <p data-design-text-token="body-lg" class="font-body text-body-lg text-on-surface-muted text-pretty">
+              One predictable fee per site per month. No surprise call-out invoices.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-lg items-stretch">
+            <!-- Starter Tier -->
+            <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-6 md:p-8 shadow-sm flex flex-col justify-between gap-gutter-lg">
+              <div class="flex flex-col gap-gutter-lg">
+                <header class="flex flex-col gap-gutter-xs">
+                  <h3 data-design-text-token="headline-md" class="font-headline text-headline-md text-on-surface">Starter</h3>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">Essential checks for offices up to 10 staff.</p>
+                </header>
+
+                <div class="flex items-center gap-gutter-xs">
+                  <span data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface tabular-nums">R899</span>
+                  <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">/ site / month</span>
+                </div>
+
+                <ul class="flex flex-col gap-gutter-sm border-t border-outline-subtle pt-5">
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Weekly automated Resilience Score</span>
+                  </li>
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Backup &amp; Microsoft 365 health alerts</span>
+                  </li>
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Monthly plain-English PDF summary</span>
+                  </li>
+                </ul>
+              </div>
+
+              <footer>
+                <button type="button" class="w-full inline-flex items-center justify-center px-5 py-3 rounded-DEFAULT bg-surface text-on-surface border border-outline font-label hover:bg-surface-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change">
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg">Start with Starter</span>
+                </button>
+              </footer>
+            </article>
+
+            <!-- Growth Tier (Featured) -->
+            <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full bg-surface text-on-surface rounded-md border-2 border-primary p-6 md:p-8 shadow-md flex flex-col justify-between gap-gutter-lg">
+              <div class="flex flex-col gap-gutter-lg">
+                <header class="flex flex-col gap-gutter-xs">
+                  <div class="flex items-center justify-between gap-gutter-sm">
+                    <h3 data-design-text-token="headline-md" class="font-headline text-headline-md text-on-surface">Growth</h3>
+                    <span data-design-text-token="label-sm" class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm">Most popular</span>
+                  </div>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">Active monitoring and hands-on fixes for growing teams.</p>
+                </header>
+
+                <div class="flex items-center gap-gutter-xs">
+                  <span data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface tabular-nums">R1,999</span>
+                  <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">/ site / month</span>
+                </div>
+
+                <ul class="flex flex-col gap-gutter-sm border-t border-outline-subtle pt-5">
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Everything in Starter, plus 25 staff devices</span>
+                  </li>
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">CCTV, network &amp; backup power monitoring</span>
+                  </li>
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Remote IT fixes &amp; quarterly backup restore tests</span>
+                  </li>
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">POPIA readiness checklist &amp; staff offboarding</span>
+                  </li>
+                </ul>
+              </div>
+
+              <footer>
+                <button type="button" class="w-full inline-flex items-center justify-center px-5 py-3 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change">
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg">Start with Growth</span>
+                </button>
+              </footer>
+            </article>
+
+            <!-- Shield Tier -->
+            <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full bg-surface text-on-surface rounded-md border border-outline-subtle p-6 md:p-8 shadow-sm flex flex-col justify-between gap-gutter-lg">
+              <div class="flex flex-col gap-gutter-lg">
+                <header class="flex flex-col gap-gutter-xs">
+                  <h3 data-design-text-token="headline-md" class="font-headline text-headline-md text-on-surface">Shield</h3>
+                  <p data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted text-balance">Full IT care and priority response for multi-site firms.</p>
+                </header>
+
+                <div class="flex items-center gap-gutter-xs">
+                  <span data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-surface tabular-nums">R3,999</span>
+                  <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface-muted">/ site / month</span>
+                </div>
+
+                <ul class="flex flex-col gap-gutter-sm border-t border-outline-subtle pt-5">
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Everything in Growth, plus up to 60 devices</span>
+                  </li>
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Same-day priority engineer support</span>
+                  </li>
+                  <li class="flex items-start gap-gutter-sm">
+                    <span class="material-symbols-outlined text-title-md text-primary shrink-0 mt-0.5" aria-hidden="true">check</span>
+                    <span data-design-text-token="body-sm" class="font-body text-body-sm text-on-surface">Insurer &amp; board-ready POPIA evidence pack</span>
+                  </li>
+                </ul>
+              </div>
+
+              <footer>
+                <button type="button" class="w-full inline-flex items-center justify-center px-5 py-3 rounded-DEFAULT bg-surface text-on-surface border border-outline font-label hover:bg-surface-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-state-change ease-state-change">
+                  <span data-design-text-token="label-lg" class="font-label text-label-lg">Start with Shield</span>
+                </button>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Final Call to Action -->
+      <section class="bg-navy text-on-navy py-section-md lg:py-section-lg">
+        <div class="max-w-4xl mx-auto px-gutter-lg text-center flex flex-col items-center gap-gutter-lg">
+          <h2 data-design-text-token="headline-lg" class="font-headline text-headline-lg text-on-navy text-balance">
+            See your business Resilience Score in 10 minutes.
+          </h2>
+          <p data-design-text-token="body-lg" class="font-body text-body-lg text-navy-muted max-w-prose text-pretty">
+            Get a plain-English snapshot of your backups, Microsoft 365, CCTV, and POPIA readiness—completely free, with zero obligation.
+          </p>
+          <div class="flex flex-wrap items-center justify-center gap-gutter-md">
+            <!-- COMPONENT: button-primary -->
+            <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="button" class="inline-flex items-center justify-center gap-gutter-sm px-6 py-3.5 rounded-DEFAULT bg-primary text-on-primary font-label hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change">
+              <span data-design-text-token="label-lg" class="font-label text-label-lg">Get my free Resilience Check</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-on-navy border-t border-navy-surface-elevated py-10">
+      <div class="max-w-7xl mx-auto px-gutter-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-gutter-lg">
+        <div class="flex flex-col gap-gutter-xs">
+          <div class="flex items-center gap-gutter-sm">
+            <span class="w-7 h-7 rounded-DEFAULT bg-primary text-on-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">shield</span>
+            </span>
+            <span data-design-text-token="title-md" class="font-title text-title-md text-on-navy">ShieldDesk</span>
+          </div>
+          <p data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted">
+            IT care and POPIA readiness for South African small businesses. Johannesburg &amp; Cape Town.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-gutter-lg">
+          <a href="#the-problem" data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted hover:text-on-navy transition-colors duration-state-change ease-state-change">The problem</a>
+          <a href="#how-it-works" data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted hover:text-on-navy transition-colors duration-state-change ease-state-change">How it works</a>
+          <a href="#pricing" data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted hover:text-on-navy transition-colors duration-state-change ease-state-change">Pricing</a>
+          <a href="#" data-design-text-token="body-sm" class="font-body text-body-sm text-navy-muted hover:text-on-navy transition-colors duration-state-change ease-state-change">Log in</a>
+        </div>
+
+        <p data-design-text-token="label-sm" class="font-label text-label-sm text-navy-muted shrink-0">
+          © 2026 ShieldDesk
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+
+</body></html>
