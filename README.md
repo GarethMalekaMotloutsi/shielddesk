@@ -58,7 +58,7 @@ Supabase
 ## Run it locally
 
 ```bash
-git clone <this-repo-url>
+git clone <https://github.com/GarethMalekaMotloutsi/shielddesk>
 cd shielddesk
 npm install
 cp .env.example .env   # add your Supabase URL and anon key
