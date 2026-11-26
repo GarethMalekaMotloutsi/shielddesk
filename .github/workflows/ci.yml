@@ -33,6 +33,9 @@ jobs:
 
       - name: Run component tests
         run: npm test
+        env:
+          VITE_SUPABASE_URL: https://example.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: test-publishable-key
 
       - name: Build application
         run: npm run build
